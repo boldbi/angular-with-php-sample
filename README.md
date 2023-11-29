@@ -4,7 +4,7 @@ This project was created using Angular 16 with PHP. This application aims to dem
 
 ## Dashboard view
 
-  ![Dashboard view](https://github.com/bold-bi/embedded-bi-samples/assets/129487075/fb69df74-a860-4539-be00-7e83a33e2e38)
+  ![Dashboard view](https://github.com/boldbi/angular-with-php-sample/assets/129487075/b5b74a98-8fdc-42bc-8bd2-89404898a414)
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ The samples require the following requirements to run.
 
   * Copy the downloaded `embedConfig.json` file and paste it into the designated [location](https://github.com/boldbi/angular-with-php-sample/tree/master) within the application. Please ensure you have placed it in the application, as shown in the following image.
     
-    ![EmbedConfig image](https://github.com/bold-bi/embedded-bi-samples/assets/129487075/6d18d071-3a23-4218-a2dd-ff18742009dc)
+    ![EmbedConfig image](https://github.com/boldbi/angular-with-php-sample/assets/129487075/fd45c838-d847-43c6-bf60-66c4a99b05f3)
 
 ## Run a PHP Sample
  
@@ -43,7 +43,7 @@ The samples require the following requirements to run.
 
 ## Run a Angular Sample Using Command Line Interface 
     
-  * Open the command line interface and navigate to the specified file [location](https://github.com/boldbi/angular-with-php-sample) where the project is located.
+  * Open the command line interface and navigate to the specified file [location](https://github.com/boldbi/angular-with-php-sample/Angular) where the project is located.
    
   * To install all dependent packages, use the following command `npm install`.
  
@@ -71,7 +71,7 @@ The samples require the following requirements to run.
 
  * After the application has started, it will display a URL in the `command line interface`, typically something like (e.g., http://localhost:4200/). Copy this URL and paste it into your default web browser. 
 
-    ![dashboard view](https://github.com/bold-bi/embedded-bi-samples/assets/129487075/c889714a-1541-4b97-80a2-5b5f4617caa9)
+    ![dashboard view](https://github.com/boldbi/angular-with-php-sample/assets/129487075/a5d4781a-9b0f-43c0-800f-b03a294729cc)
 
 ## Online Demos
 
