@@ -13,6 +13,7 @@ $userEmail = $appConfig['UserEmail'];
 
 $serverTimeStamp=time();
 $data = json_decode(file_get_contents('php://input'), true);
+
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
   header('Access-Control-Allow-Origin: *');
   header('Access-Control-Allow-Methods: POST, GET, DELETE, PUT, PATCH, OPTIONS');
@@ -25,6 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
+
 // Getting embedQuerString and dashboardServerApiUrl from BoldBI wrapper 
 if ($data != null && $data["embedQuerString"] !="" && $data["dashboardServerApiUrl"]!="") {
   $embedQuerString = $data["embedQuerString"];
@@ -32,7 +34,7 @@ if ($data != null && $data["embedQuerString"] !="" && $data["dashboardServerApiU
   $dashdetails = GetEmbedDetails($embedQuerString, $dashboardServerApiUrl);
   header('Content-type: application/json');
   echo json_encode($dashdetails);
- }
+}
  
 // This function used to get dashboard details from Bold BI Server 
 function GetEmbedDetails($embedQuerString, $dashboardServerApiUrl){
@@ -41,9 +43,9 @@ function GetEmbedDetails($embedQuerString, $dashboardServerApiUrl){
   $embedQuerString = $embedQuerString . "&embed_user_email=" . $userEmail; //. "&embed_datasource_filter=[{&&StoreName=Trousers','Jackets}]";
   $embedQuerString = $embedQuerString . "&embed_server_timestamp=" . $serverTimeStamp;
   $embedSignature = "&embed_signature=" . getSignatureUrl($embedQuerString);
-//echo $embedSignature;
+  //echo $embedSignature;
   $embedDetailsUrl = "/embed/authorize?" . $embedQuerString . $embedSignature;
-	//echo   $dashboardServerApiUrl . $embedDetailsUrl;
+
   $curl = curl_init();
   curl_setopt_array($curl, array(
     CURLOPT_URL => $dashboardServerApiUrl . $embedDetailsUrl,
@@ -62,11 +64,13 @@ function GetEmbedDetails($embedQuerString, $dashboardServerApiUrl){
   return $response;
 }
 
-//// Prepare embed_Signature by encrypting with secretCode ////
+// Prepare embed_Signature by encrypting with secretCode
 function getSignatureUrl($embedQuerString) {
   global $secretCode; 
-  $keyBytes = utf8_encode($secretCode);        
-  $messageBytes = utf8_encode($embedQuerString);
+  // $keyBytes = utf8_encode($secretCode);        
+  // $messageBytes = utf8_encode($embedQuerString);
+  $keyBytes = mb_convert_encoding($secretCode, 'UTF-8');
+  $messageBytes = mb_convert_encoding($embedQuerString, 'UTF-8');
   $hashMessage = hash_hmac('sha256',$messageBytes, $keyBytes, true);
   $signature = base64_encode($hashMessage);
   return $signature;
