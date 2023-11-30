@@ -11,8 +11,11 @@ This project was created using Angular 16 with PHP. This application aims to dem
 The samples require the following requirements to run.
 
  * [PHP](https://windows.php.net/download/)
+ * [Node.js](https://nodejs.org/en/)
  * [Visual Studio Code](https://code.visualstudio.com/download)
  
+ > **NOTE:** Node.js versions 16.14 to 18.18 are supported.
+
 #### Supported browsers
   
   * Google Chrome, Microsoft Edge, and Mozilla Firefox.
