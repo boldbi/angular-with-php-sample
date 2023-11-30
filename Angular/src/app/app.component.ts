@@ -12,10 +12,10 @@ import { appService } from './app.service';
     public apiHost="http://localhost:8080";
   
     //Url of the Authorization action in PHP application
-    public authorizationUrl= "/PHP/authorizeserver.php";
+    public authorizationUrl= "/authorizeserver.php";
     
     //Url of the GetDetails ation in PHP application
-    public getEmbedConfigUrl= "/PHP/getData.php";
+    public getEmbedConfigUrl= "/getData.php";
 
     public embedConfig: any;
       

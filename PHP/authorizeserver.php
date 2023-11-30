@@ -40,10 +40,9 @@ if ($data != null && $data["embedQuerString"] !="" && $data["dashboardServerApiU
 function GetEmbedDetails($embedQuerString, $dashboardServerApiUrl){
   global $userEmail;
   global $serverTimeStamp;
-  $embedQuerString = $embedQuerString . "&embed_user_email=" . $userEmail; //. "&embed_datasource_filter=[{&&StoreName=Trousers','Jackets}]";
+  $embedQuerString = $embedQuerString . "&embed_user_email=" . $userEmail;
   $embedQuerString = $embedQuerString . "&embed_server_timestamp=" . $serverTimeStamp;
   $embedSignature = "&embed_signature=" . getSignatureUrl($embedQuerString);
-  //echo $embedSignature;
   $embedDetailsUrl = "/embed/authorize?" . $embedQuerString . $embedSignature;
 
   $curl = curl_init();
@@ -67,8 +66,6 @@ function GetEmbedDetails($embedQuerString, $dashboardServerApiUrl){
 // Prepare embed_Signature by encrypting with secretCode
 function getSignatureUrl($embedQuerString) {
   global $secretCode; 
-  // $keyBytes = utf8_encode($secretCode);        
-  // $messageBytes = utf8_encode($embedQuerString);
   $keyBytes = mb_convert_encoding($secretCode, 'UTF-8');
   $messageBytes = mb_convert_encoding($embedQuerString, 'UTF-8');
   $hashMessage = hash_hmac('sha256',$messageBytes, $keyBytes, true);
