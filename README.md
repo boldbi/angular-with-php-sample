@@ -19,8 +19,6 @@ The samples require the following requirements to run.
 
 ## Configuration
 
-  * Please [get](https://github.com/boldbi/angular-with-php-sample/tree/master) the Angular with PHP sample from GitHub.
-
   * Please ensure you have enabled embed authentication on the `embed settings` page. If it is not currently enabled, please refer to the following image or detailed [instructions](https://help.boldbi.com/site-administration/embed-settings/#get-embed-secret-code) to enable it.
 
     ![Embed Settings](https://github.com/boldbi/aspnet-core-sample/assets/91586758/b3a81978-9eb4-42b2-92bb-d1e2735ab007)
@@ -31,7 +29,7 @@ The samples require the following requirements to run.
 
     ![EmbedConfig Properties](https://github.com/boldbi/aspnet-core-sample/assets/91586758/d6ce925a-0d4c-45d2-817e-24d6d59e0d63)
 
-  * Copy the downloaded `embedConfig.json` file and paste it into the designated [location](https://github.com/boldbi/angular-with-php-sample/tree/master) within the application. Please ensure you have placed it in the application, as shown in the following image.
+  * Copy the downloaded `embedConfig.json` file and paste it into the designated [location](https://github.com/boldbi/angular-with-php-sample/PHP) within the application. Please ensure you have placed it in the application, as shown in the following image.
     
     ![EmbedConfig image](https://github.com/boldbi/angular-with-php-sample/assets/129487075/fd45c838-d847-43c6-bf60-66c4a99b05f3)
 
@@ -41,8 +39,12 @@ The samples require the following requirements to run.
  
  * Ensure whether embedConfig file is located in following location, `PHP/embedConfig.json` and run the PHP application using the respective IDE or using visual studio code.
 
-## Run a Angular Sample Using Command Line Interface 
+## Run a Sample Using Command Line Interface 
     
+  * Open the command line interface and navigate to the specified file [location](https://github.com/boldbi/angular-with-php-sample/PHP) where the project is located.
+
+  * Run the back-end `PHP` sample using the following command `php -S localhost:8080`.
+  
   * Open the command line interface and navigate to the specified file [location](https://github.com/boldbi/angular-with-php-sample/Angular) where the project is located.
    
   * To install all dependent packages, use the following command `npm install`.
@@ -53,7 +55,15 @@ The samples require the following requirements to run.
 
   * [Visual Studio Code](https://code.visualstudio.com/download)
 
-## Run a Angular Sample Using Visual Studio Code
+## Run a Sample Using Visual Studio Code
+
+ * Open the PHP sample in **Visual Studio Code**.
+
+  * Run the PHP sample, use the below command
+
+    ```bash
+      php -S localhost:8080
+    ```
 
  * Open the Angular sample in **Visual Studio Code**.
 
@@ -72,6 +82,8 @@ The samples require the following requirements to run.
  * After the application has started, it will display a URL in the `command line interface`, typically something like (e.g., http://localhost:4200/). Copy this URL and paste it into your default web browser. 
 
     ![dashboard view](https://github.com/boldbi/angular-with-php-sample/assets/129487075/a5d4781a-9b0f-43c0-800f-b03a294729cc)
+
+> **NOTE:** If the API host is already in use, modify the port number according to your preference and update it in the app.component.ts file.
 
 ## Online Demos
 
