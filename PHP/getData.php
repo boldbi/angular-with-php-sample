@@ -25,7 +25,7 @@ if (json_last_error() !== JSON_ERROR_NONE) {
 }
 
 // Extract specific values
-$selectedValues = array(
+$clientEmbedConfigData = array(
     "DashboardId" => $dataArray["DashboardId"],
     "ServerUrl" => $dataArray["ServerUrl"],
     "SiteIdentifier" => $dataArray["SiteIdentifier"],
@@ -34,5 +34,5 @@ $selectedValues = array(
 );
 
 // Return the specific values of parsed data as JSON response
-echo json_encode($selectedValues, JSON_PRETTY_PRINT);
+echo json_encode($clientEmbedConfigData, JSON_PRETTY_PRINT);
 ?>
