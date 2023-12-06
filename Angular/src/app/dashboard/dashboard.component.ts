@@ -4,6 +4,7 @@ import { appService } from '../app.service';
 import { AppComponent } from '../app.component';
 import { BoldBI } from '@boldbi/boldbi-embedded-sdk';
 import { DashboardService } from '../dashboard.service';
+import { EMPTY, catchError } from 'rxjs';
 
 // declare var BoldBI: any;
 @Component({
@@ -21,9 +22,15 @@ export class Dashboard implements OnInit {
     constructor(private _app: appService, private _appComponent: AppComponent, private dashboardService: DashboardService) {
     }
 
-    ngOnInit() {    
-          
-        this._app.GetEmbedConfig(this._appComponent.apiHost + this._appComponent.getEmbedConfigUrl).subscribe(data => {
+    ngOnInit() {       
+        this._app.GetEmbedConfig(this._appComponent.apiHost + this._appComponent.getEmbedConfigUrl)
+        .pipe(
+            catchError(error => {
+              console.log('Error in the embedConfig.json file');
+              return EMPTY;
+            })
+          )
+        .subscribe(data => {
             this._appComponent.embedConfig = <any>data;
             this.dashboardService.setEmbedConfig(this._appComponent.embedConfig);
             if (this.dashboardService.embedConfig.Environment == "enterprise" || this.dashboardService.embedConfig.Environment == "onpremise") {

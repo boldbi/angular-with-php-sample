@@ -11,7 +11,7 @@ $data = file_get_contents('embedConfig.json');
 
 if ($data === false) {
     http_response_code(500); // Internal Server Error
-    echo json_encode(array("error" => "Could not read the JSON file."));
+    echo "embedConfig.json file not found!";
     exit();
 }
 
